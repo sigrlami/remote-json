@@ -17,6 +17,8 @@
 #  location: "./custom-snapshot.yaml"
 resolver: lts-8.13
 
+allow-newer: true
+
 # User packages to be built.
 # Various formats can be used as shown in the example below.
 #
@@ -35,12 +37,8 @@ resolver: lts-8.13
 # A package marked 'extra-dep: true' will only be built if demanded by a
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
-packages: 
+packages:
   - '.'
-  - location:
-      git: 'git@github.com:ku-fpg/remote-monad'
-      commit: '03f2e83'
-    extra-dep: true
 # The following packages have been ignored due to incompatibility with the
 # resolver compiler, dependency conflicts with other packages
 # or unsatisfied dependencies.
@@ -51,7 +49,9 @@ packages:
 
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-extra-deps: []
+extra-deps:
+  - git: 'git@github.com:ku-fpg/remote-monad'
+    commit: '79d22ea2bde876e6640a25472d90fc3d7dd82a3a'
 
 # Override default flag values for local packages and extra-deps
 flags: {}
