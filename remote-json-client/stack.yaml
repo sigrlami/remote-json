@@ -35,18 +35,16 @@ resolver: lts-8.14
 # A package marked 'extra-dep: true' will only be built if demanded by a
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
-packages: 
+packages:
 - '.'
 - '..'
-- location:
-    git: 'git@github.com:ku-fpg/remote-monad'
-    commit: 'd39fa'
-  extra-dep: true
 
 
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-extra-deps: []
+extra-deps:
+- git: 'git@github.com:ku-fpg/remote-monad'
+  commit: '79d22ea2bde876e6640a25472d90fc3d7dd82a3a'
 
 # Override default flag values for local packages and extra-deps
 flags: {}
